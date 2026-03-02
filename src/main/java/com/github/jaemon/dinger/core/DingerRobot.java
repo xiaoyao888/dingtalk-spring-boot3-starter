@@ -151,4 +151,22 @@ public class DingerRobot extends AbstractDingerSender {
         }
     }
 
+    @Override
+    public DingerResponse send(DingerProperties properties, DingerType dingerType, MessageSubType messageSubType, DingerRequest request) {
+        dingerProperties = properties;
+        if (!messageSubType.isSupport()) {
+            return DingerResponse.failed(DingerResponseCodeEnum.MESSAGE_TYPE_UNSUPPORTED);
+        }
+        CustomMessage customMessage = customMessage(messageSubType);
+        String msgContent = customMessage.message(
+                dingerProperties.getProjectId(), request
+        );
+        request.setContent(msgContent);
+
+        MsgType msgType = messageSubType.msgType(
+                dingerType, request
+        );
+
+        return send(msgType);
+    }
 }

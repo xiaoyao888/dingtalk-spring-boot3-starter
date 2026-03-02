@@ -5,19 +5,19 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.github.answerail</groupId>
-    <artifactId>dinger-spring-boot-starter</artifactId>
+    <artifactId>dinger-spring-boot3-starter</artifactId>
     <packaging>jar</packaging>
-    <version>2.1.0</version>
+    <version>3.0.0</version>
 
-    <name>dinger-spring-boot-starter</name>
+    <name>dinger-spring-boot3-starter</name>
     <description>Dinger-SpringBoot集成钉钉/企业微信/飞书群机器人实现消息通知中间件</description>
-    <url>https://github.com/AnswerAIL/dingtalk-spring-boot-starter</url>
+    <url>https://github.com/flypeng888/dingtalk-spring-boot3-starter</url>
 
 
     <properties>
-        <spring-boot.version>2.7.4</spring-boot.version>
-        <spring-web-version>5.3.23</spring-web-version>
-        <java.version>1.8</java.version>
+        <spring-boot.version>3.2.3</spring-boot.version>
+        <spring-web-version>6.1.4</spring-web-version>
+        <java.version>21</java.version>
         <slf4j-api.version>2.0.6</slf4j-api.version>
         <jackson.version>2.14.1</jackson.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -59,6 +59,22 @@
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
             <version>${slf4j-api.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- Jakarta XML Binding API -->
+        <dependency>
+            <groupId>jakarta.xml.bind</groupId>
+            <artifactId>jakarta.xml.bind-api</artifactId>
+            <version>4.0.0</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- Jakarta XML Binding Implementation -->
+        <dependency>
+            <groupId>com.sun.xml.bind</groupId>
+            <artifactId>jaxb-impl</artifactId>
+            <version>4.0.0</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
@@ -122,14 +138,26 @@
 
     <build>
         <plugins>
+            <!--maven-compiler-plugin-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.11.0</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+
             <!--javadoc-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                <version>2.10.4</version>
+                <version>3.6.0</version>
                 <configuration>
                     <encoding>UTF-8</encoding>
-                    <aggregate>true</aggregate>
+<!--                    <aggregate>true</aggregate>-->
                     <charset>UTF-8</charset>
                     <docencoding>UTF-8</docencoding>
                     <failOnError>false</failOnError>
@@ -172,7 +200,7 @@
                     <execution>
                         <phase>package</phase>
                         <goals>
-                            <goal>shade</goal>
+<!--                            <goal>shade</goal>-->
                         </goals>
                         <configuration>
                             <!-- http://maven.apache.org/plugins/maven-shade-plugin/shade-mojo.html -->
@@ -197,7 +225,7 @@
                         <id>sign-artifacts</id>
                         <phase>verify</phase>
                         <goals>
-                            <goal>sign</goal>
+<!--                            <goal>sign</goal>-->
                         </goals>
                     </execution>
                 </executions>

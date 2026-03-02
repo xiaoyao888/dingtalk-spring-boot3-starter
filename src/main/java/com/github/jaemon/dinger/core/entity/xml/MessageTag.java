@@ -17,8 +17,8 @@ package com.github.jaemon.dinger.core.entity.xml;
 
 import com.github.jaemon.dinger.core.annatations.PriorityColumn;
 
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.XmlAttribute;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
 /**
  * MessageTag

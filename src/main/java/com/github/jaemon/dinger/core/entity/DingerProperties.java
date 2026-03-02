@@ -36,7 +36,7 @@ import static com.github.jaemon.dinger.constant.DingerConstant.DINGER_PROP_PREFI
  * @author Jaemon
  * @since 1.0
  */
-@ConfigurationProperties(prefix = DINGER_PROP_PREFIX)
+//@ConfigurationProperties(prefix = DINGER_PROP_PREFIX)
 public class DingerProperties implements InitializingBean {
     private static final Logger log = LoggerFactory.getLogger(DingerProperties.class);
 

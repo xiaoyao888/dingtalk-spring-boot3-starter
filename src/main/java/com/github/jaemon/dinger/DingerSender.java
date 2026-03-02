@@ -59,4 +59,20 @@ public interface DingerSender {
      *              响应报文
      * */
     DingerResponse send(DingerType dingerType, MessageSubType messageSubType, DingerRequest request);
+
+    /**
+     * 发送消息到指定群
+     *
+     * @param dingerType
+     *              Dinger类型 {@link DingerType}
+     * @param messageSubType
+     *              消息类型{@link MessageSubType}
+     * @param request
+     *              请求体 {@link DingerRequest}
+     * @return
+     *              响应报文
+     * */
+    DingerResponse send(DingerProperties dingerProperties,DingerType dingerType, MessageSubType messageSubType, DingerRequest request);
+
+
 }

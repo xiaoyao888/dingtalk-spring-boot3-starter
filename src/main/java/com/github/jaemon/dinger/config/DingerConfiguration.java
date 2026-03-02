@@ -35,11 +35,15 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 @ConditionalOnClass(DingerRobot.class)
-@EnableConfigurationProperties(DingerProperties.class)
+//@EnableConfigurationProperties(DingerProperties.class)
 public class DingerConfiguration {
 
-    @Autowired
+//    @Autowired
     private DingerProperties dingerProperties;
+
+    public DingerProperties getDingerProperties() {
+        return dingerProperties;
+    }
 
     @Bean
     @ConditionalOnMissingBean(DingerConfigurerAdapter.class)
